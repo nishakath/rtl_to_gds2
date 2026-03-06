@@ -7,6 +7,8 @@ parameter bw_psum = 2*bw+6;
 parameter pr = 8;
 parameter col_id = 0;
 
+localparam MAX_CNT = 9 - col_id;
+
 output signed [bw_psum-1:0] out;
 input  signed [pr*bw-1:0] q_in;
 output signed [pr*bw-1:0] q_out;
@@ -36,28 +38,30 @@ mac_16in #(.bw(bw), .bw_psum(bw_psum), .pr(pr)) mac_16in_instance (
 
 always @ (posedge clk) begin
   if (reset) begin
-    cnt_q <= 0;
-    load_ready_q <= 1;
-    inst_q <= 0;
-    inst_2q <= 0;
+      cnt_q        <= 4'b0000;       // all bits initialized
+      load_ready_q <= 1'b1;          // load ready on reset
+      inst_q       <= 2'b00;
+      inst_2q      <= 2'b00;
+      query_q      <= {pr*bw{1'b0}}; // clear query
+      key_q        <= {pr*bw{1'b0}}; // clear key
   end
   else begin
     inst_q <= i_inst;
     inst_2q <= inst_q;
-    if (inst_q[0]) begin
-       query_q <= q_in;
-       if (cnt_q == 9-col_id)begin
-         cnt_q <= 0;
-         key_q <= q_in;
-         load_ready_q <= 0;
-       end
-       else if (load_ready_q)
-         cnt_q <= cnt_q + 1;
-    end
-    else if(inst_q[1]) begin
-      //out     <= psum;
-      query_q <= q_in;
-    end
+        if (inst_q[0]) begin
+            query_q <= q_in;
+            if (cnt_q >= MAX_CNT) begin
+                cnt_q        <= 4'b0000;
+                key_q        <= q_in;
+                load_ready_q <= 1'b0;
+            end else if (load_ready_q) begin
+                cnt_q <= cnt_q + 1;
+            end
+        end 
+        // Execute phase
+        else if (inst_q[1]) begin
+            query_q <= q_in;
+        end
   end
 end
 

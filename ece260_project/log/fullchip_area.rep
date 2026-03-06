@@ -1,0 +1,58 @@
+ 
+****************************************
+Report : area
+Design : fullchip
+Version: K-2015.06-SP2
+Date   : Fri Mar  6 13:27:12 2026
+****************************************
+
+Information: Updating design information... (UID-85)
+Warning: Design 'fullchip' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Library(s) Used:
+
+    tcbn65gplustc (File: /home/linux/ieng6/ECE260B_WI26_A00/public/PDKdata/db/tcbn65gplustc.db)
+
+Number of ports:                        25108
+Number of nets:                         67398
+Number of cells:                        39579
+Number of combinational cells:          32965
+Number of sequential cells:              6320
+Number of macros/black boxes:               0
+Number of buf/inv:                       6780
+Number of references:                       1
+
+Combinational area:             116096.760944
+Buf/Inv area:                     8485.920295
+Noncombinational area:           55145.519372
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                171242.280316
+Total area:                 undefined
+1
+ 
+****************************************
+Report : reference
+Design : fullchip
+Version: K-2015.06-SP2
+Date   : Fri Mar  6 13:27:15 2026
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+core_col8_bw8_bw_psum20_pr8   171242.280316
+                                                 1  171242.280316 h, n
+-----------------------------------------------------------------------------
+Total 1 references                                  171242.280316
+1
