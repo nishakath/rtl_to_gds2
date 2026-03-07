@@ -1,0 +1,69 @@
+[*]
+[*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
+[*] Thu Mar  5 09:26:15 2026
+[*]
+[dumpfile] "/home/linux/ieng6/ECE260B_WI26_A00/n7kumar/ece260_project/fullchip_tb.vcd"
+[dumpfile_mtime] "Thu Mar  5 08:52:11 2026"
+[dumpfile_size] 282850
+[savefile] "/home/linux/ieng6/ECE260B_WI26_A00/n7kumar/ece260_project/new.gtkw"
+[timestart] 29250
+[size] 1920 977
+[pos] -51 -51
+*-12.494484 54340 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] fullchip_tb.
+[treeopen] fullchip_tb.fullchip_instance.
+[treeopen] fullchip_tb.fullchip_instance.core_instance.
+[treeopen] fullchip_tb.fullchip_instance.core_instance.mac_array_instance.
+[treeopen] fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].
+[treeopen] fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.
+[treeopen] fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[8].
+[sst_width] 213
+[signals_width] 261
+[sst_expanded] 1
+[sst_vpaned_height] 284
+@28
+fullchip_tb.fullchip_instance.core_instance.kmem_instance.CLK
+@22
+fullchip_tb.fullchip_instance.core_instance.kmem_instance.A[3:0]
+@28
+fullchip_tb.fullchip_instance.core_instance.kmem_instance.WEN
+fullchip_tb.fullchip_instance.core_instance.kmem_instance.CEN
+@420
+fullchip_tb.fullchip_instance.core_instance.kmem_instance.D[63:0]
+@22
+fullchip_tb.fullchip_instance.core_instance.kmem_instance.Q[63:0]
+@28
+fullchip_tb.fullchip_instance.core_instance.qmem_instance.CEN
+fullchip_tb.fullchip_instance.core_instance.qmem_instance.WEN
+@22
+fullchip_tb.fullchip_instance.core_instance.qmem_instance.D[63:0]
+fullchip_tb.fullchip_instance.core_instance.qmem_instance.memory0[63:0]
+@28
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.i_inst[1:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.inst_q[1:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.clk
+@22
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.in[63:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.q_in[63:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.q_out[63:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.cnt_q[3:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.key_q[63:0]
+@28
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.load_ready_q
+@22
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[8].mac_col_inst.key_q[63:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[8].mac_col_inst.cnt_q[3:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.in[63:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.out[159:0]
+@28
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.inst[1:0]
+@22
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.out[19:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.out[19:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_16in_instance.out[19:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_16in_instance.a[63:0]
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_16in_instance.b[63:0]
+@23
+fullchip_tb.fullchip_instance.core_instance.mac_array_instance.col_idx[1].mac_col_inst.mac_16in_instance.product0[15:0]
+[pattern_trace] 1
+[pattern_trace] 0

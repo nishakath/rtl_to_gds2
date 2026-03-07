@@ -1,0 +1,9 @@
+Normalized row           0: 0001fffffaffffe0001fffff0ffff1fffebfffe4
+Normalized row           1: 0001affff6fffdc0000cffffeffff0fffecffff5
+Normalized row           2: 000130000d000190001fffff20000affffffffe5
+Normalized row           3: 00010fffdb000080003efffeeffff8ffff3fffe7
+Normalized row           4: 0001affffdffffd00004fffd2ffff4fffe2fffee
+Normalized row           5: 0002a000010001a000440000700007ffff8fffd3
+Normalized row           6: ffff70001800031ffffd000000000b00017ffff6
+Normalized row           7: fffeb0000d0002affff1000000001a000180000c
+
