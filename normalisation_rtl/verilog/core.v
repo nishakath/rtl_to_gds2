@@ -49,8 +49,16 @@ assign pmem_wr = inst[0];
 assign sfp_acc = inst[17];
 assign sfp_div = inst[18];
 
+reg sfp_div_q;
+always @(posedge clk) begin
+  if (reset)
+    sfp_div_q <= 1'b0;
+  else
+    sfp_div_q <= sfp_div;
+end
+
 assign mac_in  = inst[6] ? kmem_out : qmem_out;
-assign pmem_in = (sfp_div || (pmem_wr && !ofifo_rd)) ? sfp_out : fifo_out;
+assign pmem_in = (sfp_div_q || (pmem_wr && !ofifo_rd)) ? sfp_out : fifo_out;
 assign out = pmem_out;
 
 mac_array #(.bw(bw), .bw_psum(bw_psum), .col(col), .pr(pr)) mac_array_instance (

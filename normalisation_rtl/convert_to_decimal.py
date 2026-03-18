@@ -20,7 +20,7 @@ for line in lines:
             hex_segment = hex_data[i:i+5]
             if len(hex_segment) == 5:
                 elements.append(str(hex_to_signed_decimal(hex_segment)))
-        output_lines.append(f"Row {row_idx}: " + "  ".join(elements))
+        output_lines.append("Row {}: {}".format(row_idx, "  ".join(elements)))
 
 with open('check_norm_decimal.txt', 'w') as f:
     f.write("\n".join(output_lines) + "\n")

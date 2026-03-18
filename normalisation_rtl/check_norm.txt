@@ -1,9 +1,9 @@
-Normalized row           0: 0001fffffaffffe0001fffff0ffff1fffebfffe4
-Normalized row           1: 0001affff6fffdc0000cffffeffff0fffecffff5
-Normalized row           2: 000130000d000190001fffff20000affffffffe5
-Normalized row           3: 00010fffdb000080003efffeeffff8ffff3fffe7
-Normalized row           4: 0001affffdffffd00004fffd2ffff4fffe2fffee
-Normalized row           5: 0002a000010001a000440000700007ffff8fffd3
-Normalized row           6: ffff70001800031ffffd000000000b00017ffff6
-Normalized row           7: fffeb0000d0002affff1000000001a000180000c
+Normalized row           0: 0001f00006000020001f000100000f000150001c
+Normalized row           1: 0001a0000a000240000c0000200010000140000b
+Normalized row           2: 000130000d000190001f0000e0000a000010001b
+Normalized row           3: 0001000025000080003e00012000080000d00019
+Normalized row           4: 0001a0000300003000040002e0000c0001e00012
+Normalized row           5: 0002a000010001a000440000700007000080002d
+Normalized row           6: 00009000180003100003000000000b000170000a
+Normalized row           7: 000150000d0002a0000f000000001a000180000c
 

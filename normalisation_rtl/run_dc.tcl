@@ -1,5 +1,5 @@
 set top_module fullchip
-set rtlPath "/home/linux/ieng6/ECE260B_WI26_A00/n7kumar/ece260_project/verilog"
+set rtlPath "/home/linux/ieng6/ECE260B_WI26_A00/n7kumar/rtl_to_gds2/normalisation_rtl/verilog"
 
 # Target library
 set target_library /home/linux/ieng6/ECE260B_WI26_A00/public/PDKdata/db/tcbn65gplustc.db 
@@ -44,12 +44,14 @@ set verilogout_single_bit false
 # read RTL
 analyze -format verilog -lib WORK fullchip.v 
 analyze -format verilog -lib WORK core.v
+analyze -format verilog -lib WORK sfp_row.v
 analyze -format verilog -lib WORK sram_w16.v
 analyze -format verilog -lib WORK mac_array.v
 analyze -format verilog -lib WORK mac_col.v
 analyze -format verilog -lib WORK mac_16in.v
 analyze -format verilog -lib WORK ofifo.v
 analyze -format verilog -lib WORK fifo_depth16.v
+analyze -format verilog -lib WORK fifo_depth8.v
 analyze -format verilog -lib WORK fifo_mux_16_1.v
 analyze -format verilog -lib WORK fifo_mux_8_1.v
 analyze -format verilog -lib WORK fifo_mux_2_1.v
@@ -77,7 +79,8 @@ set_load [get_attribute "$target_library/BUFFD8/A" fanout_load] [all_outputs]
 #}
 
 #More compiler directives
-set compile_effort   "low"
+# set compile_effort   "low"
+set compile_effort   "high"
 set_app_var ungroup_keep_original_design true
 set_register_merging [get_designs $top_module] false
 set compile_seqmap_propagate_constants false
@@ -93,7 +96,8 @@ current_design $top_module
 
 # Compile
 # Source user compile options
-compile -exact_map
+# compile -exact_map
+compile_ultra -no_autoungroup  -timing_high_effort_script -exact_map
 
 # Write Out Design - Hierarchical
 current_design $top_module

@@ -11,5 +11,5 @@ with open('expected_output.txt', 'w') as f:
         if divisor == 0:
             norm_row = [0] * 8 # Using 0 as a placeholder for undefined/zero-divisor
         else:
-            norm_row = [int(x) // divisor for x in row]
+            norm_row = [int(abs(int(x))) // divisor for x in row]
         f.write(" ".join(map(str, norm_row)) + "\n")

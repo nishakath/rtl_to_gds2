@@ -14,11 +14,11 @@ with open('expected_output.txt', 'w') as f:
         # Hardware logic: sum_2core = sum[23:7] which is sum // 128
         divisor = int(abs_sum) // 128
         
-        f.write(f"Row {i} abs_sum: {abs_sum} divisor: {divisor}\n")
+        f.write("Row {} abs_sum: {} divisor: {}\n".format(i, abs_sum, divisor))
         if divisor == 0:
             norm_row = ["X"] * 8
         else:
-            norm_row = [str(int(int(x) / divisor)) for x in row]
+            norm_row = [str(int(abs(int(x)) / divisor)) for x in row]
         
         f.write(" ".join(norm_row) + "\n")
 

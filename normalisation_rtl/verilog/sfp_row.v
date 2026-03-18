@@ -1,13 +1,13 @@
 // Created by prof. Mingu Kang @VVIP Lab in UCSD ECE department
 // Please do not spread this code without permission 
-module sfp_row (clk, reset, acc, div, fifo_ext_rd, sum_in, sum_out, sfp_in, sfp_out);
+module sfp_row (clk, acc, div, reset, fifo_ext_rd, sum_in, sum_out, sfp_in, sfp_out);
 
   parameter col = 8;
   parameter bw = 8;
   parameter bw_psum = 2*bw+4;
 
  
-  input  clk, reset, div, acc, fifo_ext_rd;
+  input  clk, div, acc, fifo_ext_rd, reset;
   input  [bw_psum+3:0] sum_in;
   input  [col*bw_psum-1:0] sfp_in;
   wire  [col*bw_psum-1:0] abs;
@@ -69,7 +69,7 @@ module sfp_row (clk, reset, acc, div, fifo_ext_rd, sum_in, sum_out, sfp_in, sfp_
   assign abs[bw_psum*7-1 : bw_psum*6] = (sfp_in[bw_psum*7-1]) ?  (~sfp_in[bw_psum*7-1 : bw_psum*6] + 1)  :  sfp_in[bw_psum*7-1 : bw_psum*6];
   assign abs[bw_psum*8-1 : bw_psum*7] = (sfp_in[bw_psum*8-1]) ?  (~sfp_in[bw_psum*8-1 : bw_psum*7] + 1)  :  sfp_in[bw_psum*8-1 : bw_psum*7];
 
-  fifo_depth16 #(.bw(bw_psum+4)) fifo_inst_int (
+  fifo_depth8 #(.bw(bw_psum+4)) fifo_inst_int (
      .rd_clk(clk), 
      .wr_clk(clk), 
      .in(sum_q),
@@ -79,7 +79,7 @@ module sfp_row (clk, reset, acc, div, fifo_ext_rd, sum_in, sum_out, sfp_in, sfp_
      .reset(reset)
   );
 
-  fifo_depth16 #(.bw(bw_psum+4)) fifo_inst_ext (
+  fifo_depth8 #(.bw(bw_psum+4)) fifo_inst_ext (
      .rd_clk(clk), 
      .wr_clk(clk), 
      .in(sum_q),
@@ -89,19 +89,10 @@ module sfp_row (clk, reset, acc, div, fifo_ext_rd, sum_in, sum_out, sfp_in, sfp_
      .reset(reset)
   );
 
-  always @ (posedge clk) begin
+  always @ (posedge clk or posedge reset) begin
     if (reset) begin
       fifo_wr <= 0;
       div_q <= 0;
-      sum_q <= 0;
-      sfp_out_sign0 <= 0;
-      sfp_out_sign1 <= 0;
-      sfp_out_sign2 <= 0;
-      sfp_out_sign3 <= 0;
-      sfp_out_sign4 <= 0;
-      sfp_out_sign5 <= 0;
-      sfp_out_sign6 <= 0;
-      sfp_out_sign7 <= 0;
     end
     else begin
        div_q <= div ;
@@ -121,17 +112,15 @@ module sfp_row (clk, reset, acc, div, fifo_ext_rd, sum_in, sum_out, sfp_in, sfp_
        else begin
          fifo_wr <= 0;
    
-         if (div) begin
-           sfp_out_sign0 <= sfp_in_sign0 / sum_2core;
-           sfp_out_sign1 <= sfp_in_sign1 / sum_2core;
-           sfp_out_sign2 <= sfp_in_sign2 / sum_2core;
-           sfp_out_sign3 <= sfp_in_sign3 / sum_2core;
-           sfp_out_sign4 <= sfp_in_sign4 / sum_2core;
-           sfp_out_sign5 <= sfp_in_sign5 / sum_2core;
-           sfp_out_sign6 <= sfp_in_sign6 / sum_2core;
-           sfp_out_sign7 <= sfp_in_sign7 / sum_2core;
-
-
+         if (div_q) begin
+           sfp_out_sign0 <= {4'b0,abs[bw_psum*1-1 : bw_psum*0]} / sum_2core;
+           sfp_out_sign1 <= {4'b0,abs[bw_psum*2-1 : bw_psum*1]} / sum_2core; 
+           sfp_out_sign2 <= {4'b0,abs[bw_psum*3-1 : bw_psum*2]} / sum_2core; 
+           sfp_out_sign3 <= {4'b0,abs[bw_psum*4-1 : bw_psum*3]} / sum_2core; 
+           sfp_out_sign4 <= {4'b0,abs[bw_psum*5-1 : bw_psum*4]} / sum_2core; 
+           sfp_out_sign5 <= {4'b0,abs[bw_psum*6-1 : bw_psum*5]} / sum_2core; 
+           sfp_out_sign6 <= {4'b0,abs[bw_psum*7-1 : bw_psum*6]} / sum_2core;
+           sfp_out_sign7 <= {4'b0,abs[bw_psum*8-1 : bw_psum*7]} / sum_2core;
 
          end
        end
@@ -140,4 +129,5 @@ module sfp_row (clk, reset, acc, div, fifo_ext_rd, sum_in, sum_out, sfp_in, sfp_
 
 
 endmodule
+
 

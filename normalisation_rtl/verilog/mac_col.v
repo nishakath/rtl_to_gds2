@@ -36,7 +36,7 @@ mac_16in #(.bw(bw), .bw_psum(bw_psum), .pr(pr)) mac_16in_instance (
 ); 
 
 
-always @ (posedge clk) begin
+always @ (posedge clk or posedge reset) begin
   if (reset) begin
       cnt_q        <= 4'b0000;       // all bits initialized
       load_ready_q <= 1'b1;          // load ready on reset
